@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chai Culture | Launching Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #d4a574;
+  --gold-light: #e8d5b7;
+  --text-dark: #2c1b14;
+  --text-muted: #6e5a4e;
+  --bg-soft: #fcfaf7;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-soft);
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* SCROLL INDICATOR */
+.scroll-indicator {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+.progress-icon { width: 22px; height: 22px; color: var(--gold); }
+.track { width: 1.5px; flex: 1; background: rgba(212, 165, 116, 0.2); margin: 12px 0; position: relative; }
+.progress-fill { position: absolute; top: 0; width: 100%; height: 0%; background: var(--gold); }
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: 
+    linear-gradient(rgba(252, 250, 247, 0.7), rgba(252, 250, 247, 0.85)), 
+    url('Gemini_Generated_Image_w8b6afw8b6afw8b6.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* THE STAR: LAUNCHING SOON BADGE */
+.launch-centerpiece {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 12px 35px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 165, 116, 0.4);
+  border-radius: 100px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(212, 165, 116, 0.15);
+}
+
+.launch-centerpiece span {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 14px;
+  color: var(--text-dark);
+  position: relative;
+  z-index: 2;
+}
+
+/* SHIMMER EFFECT */
+.launch-centerpiece::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-150%) rotate(45deg); }
+  100% { transform: translateX(150%) rotate(45deg); }
+}
+
+.main-logo { width: 260px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.08)); }
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 7vw, 72px);
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 40px;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+
+/* STYLISH FORM */
+.email-form {
+  display: flex;
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  padding: 8px;
+  border-radius: 100px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  border: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+.email-input {
+  flex: 1;
+  padding: 0 30px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+  color: var(--text-dark);
+}
+
+.notify-btn {
+  padding: 18px 45px;
+  background: var(--text-dark);
+  color: white;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.notify-btn:hover { background: #000; transform: scale(1.02); }
+
+/* PRODUCTS */
+.products { padding: 120px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; margin-top: 60px; }
+.product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 50px rgba(0,0,0,0.05); text-align: left; transition: 0.3s; }
+.product-card:hover { transform: translateY(-10px); }
+.product-img { width: 100%; height: 350px; object-fit: cover; }
+.product-info { padding: 30px; }
+.product-name { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 10px; color: var(--text-dark); }
+.product-desc { color: var(--text-muted); font-size: 15px; }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(44, 27, 20, 0.95);
+  display: none; align-items: center; justify-content: center; z-index: 1000;
+}
+.modal-content { background: white; padding: 60px; border-radius: 2px; text-align: center; max-width: 500px; border: 1px solid var(--gold); }
+.modal-content h2 { font-family: 'Playfair Display'; margin-bottom: 15px; font-size: 32px; }
+
+footer { padding: 80px 20px; text-align: center; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); background: #fff; }
+
+@media (max-width: 768px) {
+  .scroll-indicator { display: none; }
+  .email-form { flex-direction: column; border-radius: 20px; padding: 15px; gap: 15px; }
+  .notify-btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-indicator">
+  <svg class="progress-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+    <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+    <line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+  </svg>
+  <div class="track"><div class="progress-fill"></div></div>
+  <svg class="progress-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+    <path d="M3 19h18M5 19v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1"/>
+    <path d="M7 19c0-4 1-7 5-7s5 3 5 7"/>
+  </svg>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="launch-centerpiece">
+      <span>Launching Soon</span>
+    </div>
+
+    <img src="./assests/logo.png" alt="Chai Culture" class="main-logo">
+    
+    <h1>Brew the Royal Tradition</h1>
+    
+    <form class="email-form" id="signupForm">
+      <input type="email" class="email-input" placeholder="Your royal email address" required>
+      <button type="submit" class="notify-btn">Notify me</button>
+    </form>
+  </section>
+
+  <section class="products">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 10px;">The Royal Pantry</h2>
+    <p style="color: var(--gold-dark); letter-spacing: 2px; text-transform: uppercase; font-size: 12px; font-weight: 600;">Coming this 2026</p>
+    
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="./assests/product image.png" class="product-img" alt="Royal Chai">
+        <div class="product-info">
+          <div class="product-name">Imperial Cardamom</div>
+          <p class="product-desc">A delicate yet powerful blend of premium estate tea and hand-crushed green cardamom pods.</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="./assests/product image.png" class="product-img" alt="Royal Chai">
+        <div class="product-info">
+          <div class="product-name">Saffron Reserve</div>
+          <p class="product-desc">The crown jewel of our collection. Infused with pure Kashmiri saffron for an unparalleled golden hue.</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="./assests/product image.png" class="product-img" alt="Royal Chai">
+        <div class="product-info">
+          <div class="product-name">Matcha Grandeur</div>
+          <p class="product-desc">Our ceremonial grade green tea, stone-ground to perfection for a creamy, revitalizing experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; Chai Culture.</p>
+</footer>
+
+<div class="modal-overlay" id="successModal">
+  <div class="modal-content">
+    <h2>Invited.</h2>
+    <p style="color: var(--text-muted); line-height: 1.8;">Your request for early access has been received. You will be notified the moment the first kettle is boiled.</p>
+    <button onclick="closeModal()" class="notify-btn" style="margin-top: 30px;">Return to Site</button>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const height = document.body.scrollHeight - window.innerHeight;
+  document.querySelector('.progress-fill').style.height = (scrolled / height) * 100 + '%';
+});
+
+const signupForm = document.getElementById('signupForm');
+const modal = document.getElementById('successModal');
+
+signupForm.onsubmit = (e) => {
+  e.preventDefault();
+  modal.style.display = 'flex';
+  signupForm.reset();
+};
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
